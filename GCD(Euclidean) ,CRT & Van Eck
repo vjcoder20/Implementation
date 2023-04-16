@@ -1,0 +1,80 @@
+//GCD
+class HelloWorld {
+    public static int gcd(int a,int b){
+        if(b==0){
+            return a;
+        }
+        return gcd(b,a%b);
+    }
+    public static void main(String[] args) {
+        int a = 15;
+        int b = 30;
+        System.out.println(gcd(a,b));
+    }
+}
+
+o/p:15
+
+
+//CRT
+class HelloWorld {
+    public static void main(String[] args) {
+       int[] arr = {5,7,8};
+       int[] rem = {1,2,3};
+       
+       int x = 1;
+       
+       int i;
+       while(true){
+         for(i=0;i<arr.length;i++)  {
+             if(x%arr[i]!=rem[i]){
+                 break;
+             }
+         }
+             if(i==arr.length){
+                System.out.println(x);
+                 return;
+             }
+             x++;
+       }
+       
+    }
+}
+ O/p:51
+ 
+ 
+ 
+ //Van Eck
+---> Looks like: 0 0 1 0 2 0
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+     int[] arr = new int[100];
+     arr[0] = 0;
+     for(int i=1;i<100;i++){
+         int j = arr[i-1];
+         int count = 0;
+         boolean isPresent = false;
+         for(int k=i-2;k>=0;k--){
+             if(arr[k]==j){
+                 count++;
+                isPresent = true;
+                 break;
+             }
+             else{
+                 count++;
+             }
+         }
+         if(isPresent==true){
+             arr[i] = count;
+         }
+         else{
+             arr[i] = 0;
+         }
+     }
+     
+     System.out.println(Arrays.toString(arr));
+       
+    }
+}
